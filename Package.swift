@@ -10,7 +10,7 @@ let package = Package(
   dependencies: [
   ],
   targets: [
-    .target(name: "NCMB", path: "NCMB", dependencies: []),
+    .target(name: "NCMB", dependencies: [], path: "NCMB"),
     .testTarget(name: "NCMBTests", dependencies: []),
   ]
 )
