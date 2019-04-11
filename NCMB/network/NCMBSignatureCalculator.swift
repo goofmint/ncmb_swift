@@ -111,9 +111,9 @@ class NCMBSignatureCalculator {
 
     class func calculateSignature(plaintext: String, clientKey: String) throws -> String {
         let bytes = plaintext.cString(using: .utf8)
-        let bytesLength = strlen(bytes)
+        let bytesLength = strlen(bytes!)
         let key = clientKey.cString(using: .utf8)
-        let keyLength = strlen(key)
+        let keyLength = strlen(key!)
         let sha256Length : Int = Int(CC_SHA256_DIGEST_LENGTH)
         let cHMAC = UnsafeMutablePointer<CUnsignedChar>.allocate(capacity: sha256Length)
         CCHmac(CCHmacAlgorithm(kCCHmacAlgSHA256), key, keyLength, bytes, bytesLength, cHMAC)
